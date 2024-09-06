@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Protomaps Vector Tiles</title>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/pmtiles@3.0.7/dist/pmtiles.js"></script>
+    <script
+      src="https://unpkg.com/protomaps-themes-base@3/dist/protomaps-themes-base.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        margin: 0;
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script type="text/javascript">
+      // The protocol for pmtiles
+      let pm_protocol = new pmtiles.Protocol()
+      maplibregl.addProtocol('pmtiles', pm_protocol.tile)
+
+      const map = new maplibregl.Map({
+        container: 'map',
+        center: [121.53, 25.12],
+        zoom: 10,
+        style: {
+          version: 8,
+          name: 'TheThing Style',
+          metadata: {},
+          center: [121.53, 25.12],
+          zoom: 10,
+          bearing: 0,
+          pitch: 0,
+          sources: {
+            protomaps: {
+              maxzoom: 14,
+              type: 'vector',
+              tiles: [
+                'https://d308foqjhf8xto.cloudfront.net/taiwan/{z}/{x}/{y}.mvt',
+              ],
+              attribution:
+                '<a href="https://github.com/protomaps/basemaps">Protomaps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>',
+            },
+          },
+          glyphs:
+            'https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf',
+          layers: protomaps_themes_base.default('protomaps', 'light'),
+        },
+      })
+      map.addControl(new maplibregl.NavigationControl())
+    </script>
+  </body>
+</html>

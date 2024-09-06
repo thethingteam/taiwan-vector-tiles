@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>OpenMapTiles Vector Tiles</title>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        margin: 0;
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script type="text/javascript">
+      const map = new maplibregl.Map({
+        container: 'map',
+        center: [121.53, 25.12],
+        zoom: 10,
+        style: 'https://thethingteam.github.io/taiwan-vector-tiles/style.json',
+      })
+      map.addControl(new maplibregl.NavigationControl())
+    </script>
+  </body>
+</html>

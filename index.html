@@ -1,42 +1,21 @@
 <html>
   <head>
-    <title>Taiwan Vector Tiles Example</title>
+    <title>Taiwan Vector Tiles Examples</title>
     <meta charset="utf-8" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/pmtiles@3.0.7/dist/pmtiles.js"></script>
-    <style>
-      body {
-        margin: 0;
-      }
-      #map {
-        height: 100%;
-        width: 100%;
-      }
-    </style>
   </head>
   <body>
-    <div id="map"></div>
-
-    <script type="text/javascript">
-      // The protocol for pmtiles
-      let pm_protocol = new pmtiles.Protocol()
-      maplibregl.addProtocol('pmtiles', pm_protocol.tile)
-
-      const map = new maplibregl.Map({
-        container: 'map',
-        center: [121.53, 25.12],
-        zoom: 10,
-        style: 'https://thethingteam.github.io/taiwan-vector-tiles/style.json',
-      })
-      map.addControl(new maplibregl.NavigationControl())
-    </script>
+    <ul>
+      <li>
+        <a
+          href="https://thethingteam.github.io/taiwan-vector-tiles/openmaptiles"
+          >OpenMapTiles</a
+        >
+      </li>
+      <li>
+        <a href="https://thethingteam.github.io/taiwan-vector-tiles/protomaps"
+          >Protomaps</a
+        >
+      </li>
+    </ul>
   </body>
 </html>
